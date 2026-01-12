@@ -1,0 +1,2111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pengumuman Kelulusan Kelas IX</title>
+
+<style>
+*{box-sizing:border-box}
+
+html,body{
+  height:100%;
+}
+
+body{
+  margin:0;
+  font-family:'Segoe UI',Tahoma,sans-serif;
+  background:linear-gradient(270deg,#1a73e8,#4fc3f7,#7e57c2);
+  background-size:600% 600%;
+  animation:bgMove 12s ease infinite;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  padding:20px;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+.card{
+  position:relative;
+  width:100%;
+  max-width:560px;
+  background:rgba(255,255,255,.95);
+  border-radius:22px;
+  padding:36px 30px 26px;
+  box-shadow:0 30px 60px rgba(0,0,0,.25);
+}
+
+/* BADGE */
+.badge{
+  position:absolute;
+  top:-18px;
+  left:50%;
+  transform:translateX(-50%);
+  background:linear-gradient(135deg,#ff9800,#ff5722);
+  color:#fff;
+  padding:8px 18px;
+  border-radius:20px;
+  font-weight:bold;
+  box-shadow:0 10px 20px rgba(0,0,0,.25);
+}
+
+/* LOGO */
+.logos{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:26px;
+  margin-bottom:10px;
+}
+.logos img{height:60px}
+.logo-tengah{height:75px}
+
+/* HEADER */
+.header{text-align:center}
+.header h2{margin:0;font-size:18px}
+.header h1{margin:6px 0;color:#1a3d7c}
+.header p{margin:0;font-size:14px;color:#555}
+
+/* COUNTDOWN */
+.countdown-box{
+  margin-top:22px;
+  padding:18px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#fff3e0,#ffe0b2);
+  text-align:center;
+  font-weight:bold;
+  color:#e65100;
+}
+.countdown{
+  margin-top:8px;
+  font-size:20px;
+}
+
+/* FORM */
+.form{display:none}
+label{font-weight:600;margin-top:16px;display:block}
+input{
+  width:100%;
+  padding:13px;
+  margin-top:6px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:16px;
+}
+button{
+  margin-top:18px;
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  background:linear-gradient(135deg,#43a047,#1b5e20);
+  color:#fff;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* HASIL */
+.hasil{
+  margin-top:22px;
+  padding:20px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#e3f2fd,#fce4ec);
+}
+.status-lulus{
+  margin-top:10px;
+  padding:12px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#66bb6a,#2e7d32);
+  color:#fff;
+  font-size:20px;
+  font-weight:bold;
+  text-align:center;
+}
+.status-tidak{
+  margin-top:10px;
+  padding:12px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#ef5350,#b71c1c);
+  color:#fff;
+  font-size:20px;
+  font-weight:bold;
+  text-align:center;
+}
+.tidak-ditemukan{
+  margin-top:16px;
+  text-align:center;
+  color:#b71c1c;
+  font-weight:bold;
+}
+
+footer{
+  margin-top:18px;
+  text-align:center;
+  font-size:12px;
+  color:#777;
+}
+
+/* CONFETTI */
+.confetti{
+  position:fixed;
+  width:10px;
+  height:10px;
+  top:-10px;
+  animation:fall 3s linear infinite;
+}
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg)}
+}
+
+/* ======================
+   RESPONSIVE OTOMATIS
+   ====================== */
+@media(max-width:768px){
+  body{
+    align-items:flex-start;
+    padding-top:20px;
+  }
+  .card{
+    padding:28px 20px;
+  }
+  .logos img{height:48px}
+  .logo-tengah{height:60px}
+  .header h1{font-size:20px}
+  .header h2{font-size:16px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="badge">🎉 Pengumuman Resmi</div>
+
+  <div class="logos">
+    <img src="logo1.png">
+    <img src="logo2.png" class="logo-tengah">
+    <img src="logo3.png">
+  </div>
+
+  <div class="header">
+    <h2>Pengumuman Kelulusan Kelas IX</h2>
+    <h1>UPT SPF SMP NEGERI 11 MAKASSAR</h1>
+    <p>Tahun Pelajaran 2025 / 2026</p>
+  </div>
+
+  <!-- COUNTDOWN -->
+  <div id="countdownBox" class="countdown-box">
+    🔒 Pengumuman akan dibuka dalam
+    <div id="countdown" class="countdown"></div>
+  </div>
+
+  <!-- FORM -->
+  <div id="formKelulusan" class="form">
+    <label>NISN</label>
+    <input type="text" id="nisn">
+
+    <label>Tanggal Lahir</label>
+    <input type="date" id="tglLahir">
+
+    <button onclick="cekKelulusan()">🎓 Cek Kelulusan</button>
+    <div id="output"></div>
+  </div>
+
+  <footer>© UPT SPF SMP Negeri 11 Makassar | Sistem Kelulusan Online</footer>
+</div>
+
+<script>
+/* ======================
+   ATUR WAKTU BUKA
+   ====================== */
+const WAKTU_BUKA = new Date("2026-06-02T00:00:00");
+
+/* DATA SISWA */
+const dataSiswa=[
+ {
+   nama: "Ahmad Rhifah",
+   nis: "23001",
+   jeniskelamin: "Laki-Laki",
+   nisn: "115114958",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-04-01",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Aisyah Zahra Amalia Halim",
+   nis: "23002",
+   jeniskelamin: "Perempuan",
+   nisn: "103932674",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-12-15",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Auri Cahaya Puteri",
+   nis: "23123",
+   jeniskelamin: "Perempuan",
+   nisn: "112259735",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-05-16",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "DZAKY AL GIFARI",
+   nis: "23004",
+   jeniskelamin: "Laki-Laki",
+   nisn: "114667240",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-01-07",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Imam Syafi'i",
+   nis: "23007",
+   jeniskelamin: "Laki-Laki",
+   nisn: "115645779",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-02-16",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "MUH. HILMY HAIDAR M",
+   nis: "23010",
+   jeniskelamin: "Laki-Laki",
+   nisn: "109418844",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-09-05",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh. Ikram An Nur",
+   nis: "23135",
+   jeniskelamin: "Laki-Laki",
+   nisn: "113412421",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-09-19",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh. Irham Majid",
+   nis: "23011",
+   jeniskelamin: "Laki-Laki",
+   nisn: "101797371",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-12-09",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh. Raihan",
+   nis: "23012",
+   jeniskelamin: "Laki-Laki",
+   nisn: "105387458",
+   tempatLahir: "Kasuarang",
+   tanggalLahir: "2010-10-18",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh. Rizky Aditya",
+   nis: "25165",
+   jeniskelamin: "Laki-Laki",
+   nisn: "108582023",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-11-07",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh.Nadil",
+   nis: "23136",
+   jeniskelamin: "Laki-Laki",
+   nisn: "119269648",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-07-20",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "MUHAMAD KASMIR",
+   nis: "23013",
+   jeniskelamin: "Laki-Laki",
+   nisn: "102022406",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-12-16",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Mutiara Nur",
+   nis: "23014",
+   jeniskelamin: "Perempuan",
+   nisn: "111013070",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-01-21",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Nikita",
+   nis: "23083",
+   jeniskelamin: "Perempuan",
+   nisn: "115260847",
+   tempatLahir: "Pappareang",
+   tanggalLahir: "2011-03-04",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Novrianto Tamrin",
+   nis: "23016",
+   jeniskelamin: "Laki-Laki",
+   nisn: "93885773",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2009-11-21",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Nur Alam",
+   nis: "23017",
+   jeniskelamin: "Laki-Laki",
+   nisn: "109964532",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-10-15",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Nur Asifa",
+   nis: "23139",
+   jeniskelamin: "Perempuan",
+   nisn: "113851099",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-05-23",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "NUR HAMISKA",
+   nis: "23018",
+   jeniskelamin: "Perempuan",
+   nisn: "105098423",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-05-20",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Nur Khiara Shafa. S",
+   nis: "23019",
+   jeniskelamin: "Perempuan",
+   nisn: "116971800",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-03-31",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Nuraqilah Putri Ramadhani",
+   nis: "23020",
+   jeniskelamin: "Perempuan",
+   nisn: "108012069",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-08-20",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Putri Ayu",
+   nis: "23142",
+   jeniskelamin: "Perempuan",
+   nisn: "118012147",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-05-02",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Rafiqah Nabilah. S",
+   nis: "23021",
+   jeniskelamin: "Perempuan",
+   nisn: "119879913",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-04-24",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Reski Andriani",
+   nis: "23022",
+   jeniskelamin: "Perempuan",
+   nisn: "108846415",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-11-01",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Saskyla Azisah",
+   nis: "23024",
+   jeniskelamin: "Perempuan",
+   nisn: "105863582",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-10-14",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "SITTI HALIJAH",
+   nis: "23025",
+   jeniskelamin: "Perempuan",
+   nisn: "108784281",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-05-14",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Sitti Mardina",
+   nis: "23026",
+   jeniskelamin: "Perempuan",
+   nisn: "119145207",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-03-21",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Sitti Salwa",
+   nis: "23027",
+   jeniskelamin: "Perempuan",
+   nisn: "101388585",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-10-03",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Vachril Putra",
+   nis: "23028",
+   jeniskelamin: "Laki-Laki",
+   nisn: "113511045",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-09-13",
+   kelas: "Kelas 9-1",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ 
+ {
+   nama: "ANASTASIA LAURA AMUN",
+   nis: "23033",
+   jeniskelamin: "Perempuan",
+   nisn: "104418390",
+   tempatLahir: "LIDANG",
+   tanggalLahir: "2010-09-06",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "AURELIO ELVAIRO PRATAMA NUJI",
+   nis: "23034",
+   jeniskelamin: "Laki-Laki",
+   nisn: "106719771",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-10-15",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Febryona Andira Hany",
+   nis: "23035",
+   jeniskelamin: "Perempuan",
+   nisn: "116852820",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-02-24",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "JERICHO ALEXSANDRO PATI",
+   nis: "24196",
+   jeniskelamin: "Laki-Laki",
+   nisn: "113615453",
+   tempatLahir: "RANAU",
+   tanggalLahir: "2011-05-16",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "MARIA CARMELIA MICHEYLA WULON",
+   nis: "23036",
+   jeniskelamin: "Perempuan",
+   nisn: "105391704",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-07-20",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Maulidyia",
+   nis: "24202",
+   jeniskelamin: "Perempuan",
+   nisn: "111639277",
+   tempatLahir: "Denpasar",
+   tanggalLahir: "2011-02-09",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "MUH RIFKI MUKHTARULLAH",
+   nis: "23037",
+   jeniskelamin: "Laki-Laki",
+   nisn: "113281109",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-02-10",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh. Adlyn Nazurah",
+   nis: "23038",
+   jeniskelamin: "Laki-Laki",
+   nisn: "115141127",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-06-28",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh. Al Fajri",
+   nis: "23039",
+   jeniskelamin: "Laki-Laki",
+   nisn: "111342311",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-03-11",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh. Ibnu Khair. S",
+   nis: "23041",
+   jeniskelamin: "Laki-Laki",
+   nisn: "116550588",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-03-23",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh. Nafis Sya'bani",
+   nis: "23042",
+   jeniskelamin: "Laki-Laki",
+   nisn: "109904536",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-07-26",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muhammad Risky",
+   nis: "23044",
+   jeniskelamin: "Laki-Laki",
+   nisn: "101365865",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-09-18",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "MUHAMMAS IRSYA ARRASYID",
+   nis: "23043",
+   jeniskelamin: "Laki-Laki",
+   nisn: "112457529",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-09-17",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "NRICO LIONEL",
+   nis: "25205",
+   jeniskelamin: "Laki-Laki",
+   nisn: "101886140",
+   tempatLahir: "TANGERANG",
+   tanggalLahir: "2010-02-06",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "NUR AISYAH",
+   nis: "23046",
+   jeniskelamin: "Perempuan",
+   nisn: "119890736",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-07-04",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Nur Alya",
+   nis: "23047",
+   jeniskelamin: "Perempuan",
+   nisn: "129270489",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-12-12",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "NUR ASHARI",
+   nis: "23048",
+   jeniskelamin: "Perempuan",
+   nisn: "111279075",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-04-09",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Nur Azisyah Rahman",
+   nis: "23049",
+   jeniskelamin: "Perempuan",
+   nisn: "108239568",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-10-20",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Nur Azkiyah Hafizah Lukman",
+   nis: "23050",
+   jeniskelamin: "Perempuan",
+   nisn: "102009018",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-11-02",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Nur Cahaya",
+   nis: "23051",
+   jeniskelamin: "Perempuan",
+   nisn: "103835693",
+   tempatLahir: "Bontowa",
+   tanggalLahir: "2010-11-23",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Oktaviana Putri Lia Mumu",
+   nis: "23053",
+   jeniskelamin: "Perempuan",
+   nisn: "108891668",
+   tempatLahir: "Manggarai",
+   tanggalLahir: "2010-10-04",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Oktoviano Aril Panggeng",
+   nis: "23054",
+   jeniskelamin: "Laki-Laki",
+   nisn: "95302706",
+   tempatLahir: "Rabo",
+   tanggalLahir: "2009-10-10",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "SRI RAHAYU",
+   nis: "23056",
+   jeniskelamin: "Perempuan",
+   nisn: "118772871",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-08-19",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Syifah Nur Fauziyyah",
+   nis: "23057",
+   jeniskelamin: "Perempuan",
+   nisn: "115947546",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-10-18",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Wulandari",
+   nis: "23058",
+   jeniskelamin: "Perempuan",
+   nisn: "107426753",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-04-21",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "ZHAFIRAH NASRIFAH",
+   nis: "23059",
+   jeniskelamin: "Perempuan",
+   nisn: "115236994",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-06-11",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Zulfaa Nirmayanti",
+   nis: "23060",
+   jeniskelamin: "Perempuan",
+   nisn: "114049814",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-06-10",
+   kelas: "Kelas 9-2",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Akbar Latif Saharuddin",
+   nis: "23061",
+   jeniskelamin: "Laki-Laki",
+   nisn: "115819573",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-04-23",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "ARMAN SAIFUL",
+   nis: "23062",
+   jeniskelamin: "Laki-Laki",
+   nisn: "111545881",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-03-16",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Desmita Maharani",
+   nis: "23063",
+   jeniskelamin: "Perempuan",
+   nisn: "115140978",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-08-22",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "DICHA ARSHA",
+   nis: "23064",
+   jeniskelamin: "Laki-Laki",
+   nisn: "106619543",
+   tempatLahir: "BOGOR",
+   tanggalLahir: "2010-04-21",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Eka Fitriani Sugiarto",
+   nis: "23066",
+   jeniskelamin: "Perempuan",
+   nisn: "106515435",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-09-13",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "FATUR RAHMAN",
+   nis: "24193",
+   jeniskelamin: "Laki-Laki",
+   nisn: "102295326",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-10-24",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Fikri Anggara",
+   nis: "23067",
+   jeniskelamin: "Laki-Laki",
+   nisn: "116226623",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-08-12",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "FIRDA AMELIA",
+   nis: "23006",
+   jeniskelamin: "Perempuan",
+   nisn: "117680619",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-05-28",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Hadisa Nurhasana",
+   nis: "23068",
+   jeniskelamin: "Perempuan",
+   nisn: "104579143",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-12-10",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Indira Septiani",
+   nis: "23069",
+   jeniskelamin: "Perempuan",
+   nisn: "116253760",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-09-28",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "JUMIATI",
+   nis: "23071",
+   jeniskelamin: "Perempuan",
+   nisn: "107315367",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-06-12",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "KAYLA AZHILAH SABITHA",
+   nis: "23072",
+   jeniskelamin: "Perempuan",
+   nisn: "115495410",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-03-03",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "MUH SULJAELALI",
+   nis: "23073",
+   jeniskelamin: "Laki-Laki",
+   nisn: "101160893",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-10-23",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "MUH. AKBAR",
+   nis: "23074",
+   jeniskelamin: "Laki-Laki",
+   nisn: "119255243",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-05-13",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh. Fikram",
+   nis: "23076",
+   jeniskelamin: "Laki-Laki",
+   nisn: "111631028",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-04-07",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh. Iksan",
+   nis: "23077",
+   jeniskelamin: "Laki-Laki",
+   nisn: "103594170",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-07-14",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "MUH. RAHMAT ANUGRAH",
+   nis: "23078",
+   jeniskelamin: "Laki-Laki",
+   nisn: "96639489",
+   tempatLahir: "JENEPONTO",
+   tanggalLahir: "2009-10-04",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "MUH.FITRA RAMADHAN J",
+   nis: "23079",
+   jeniskelamin: "Laki-Laki",
+   nisn: "102193005",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-09-05",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "MUHAMMAD ASWAR",
+   nis: "23080",
+   jeniskelamin: "Laki-Laki",
+   nisn: "102881553",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-03-07",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "MUHAMMAD FADLI ACHMAD LAUDE",
+   nis: "23185",
+   jeniskelamin: "Laki-Laki",
+   nisn: "113940754",
+   tempatLahir: "BONTANG",
+   tanggalLahir: "2011-11-19",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "MUHAMMAD RISKI",
+   nis: "23081",
+   jeniskelamin: "Laki-Laki",
+   nisn: "118475291",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-06-21",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Na Abyh Ayyub",
+   nis: "23082",
+   jeniskelamin: "Laki-Laki",
+   nisn: "119811369",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-02-04",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Nur Aqliya Kamaruddin",
+   nis: "23085",
+   jeniskelamin: "Perempuan",
+   nisn: "113900250",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-05-09",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "NURUL AISYAH",
+   nis: "23086",
+   jeniskelamin: "Perempuan",
+   nisn: "105010036",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-10-30",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Rhadiah. M",
+   nis: "23087",
+   jeniskelamin: "Perempuan",
+   nisn: "117261754",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-03-16",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "ST. FATIMAH SALWIN",
+   nis: "23088",
+   jeniskelamin: "Perempuan",
+   nisn: "87241986",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-03-08",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "VIRA YUSIFA SUKMAN",
+   nis: "23089",
+   jeniskelamin: "Perempuan",
+   nisn: "116207241",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-02-03",
+   kelas: "Kelas 9-3",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+
+ {
+   nama: "Ahmad Noval Yazar",
+   nis: "23032",
+   jeniskelamin: "Laki-Laki",
+   nisn: "105695354",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-11-06",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "ANDI MUHAMMAD FAIZ",
+   nis: "23091",
+   jeniskelamin: "Laki-Laki",
+   nisn: "108008543",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-11-18",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Andi Zalsabila Muhammad",
+   nis: "23092",
+   jeniskelamin: "Perempuan",
+   nisn: "106265506",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-11-28",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Arganza Salwik Panggalo",
+   nis: "23188",
+   jeniskelamin: "Laki-Laki",
+   nisn: "107600176",
+   tempatLahir: "Madello",
+   tanggalLahir: "2010-10-22",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Aulia Sari Dewi",
+   nis: "23093",
+   jeniskelamin: "Perempuan",
+   nisn: "104698474",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-10-29",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Ayu Saskia",
+   nis: "23094",
+   jeniskelamin: "Perempuan",
+   nisn: "118843147",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-06-04",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Chaeril Nur Fadil",
+   nis: "23095",
+   jeniskelamin: "Laki-Laki",
+   nisn: "106804689",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-10-01",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Isnawati Ramadhani",
+   nis: "23097",
+   jeniskelamin: "Perempuan",
+   nisn: "114112979",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-08-03",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "MUH ALFAIZ",
+   nis: "23098",
+   jeniskelamin: "Laki-Laki",
+   nisn: "101494611",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-09-20",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh. Ilham",
+   nis: "23099",
+   jeniskelamin: "Laki-Laki",
+   nisn: "119133491",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-11-16",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh. Nur Alamsyah B.",
+   nis: "23100",
+   jeniskelamin: "Laki-Laki",
+   nisn: "118325096",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-04-18",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh. Yusuf Nur Iqra",
+   nis: "23101",
+   jeniskelamin: "Laki-Laki",
+   nisn: "119973789",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-06-11",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh.Rizki Ramadhani",
+   nis: "23102",
+   jeniskelamin: "Laki-Laki",
+   nisn: "113608383",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-08-27",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "MUHAMMAD HAERIL",
+   nis: "24194",
+   jeniskelamin: "Laki-Laki",
+   nisn: "3117057371",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-02-20",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "MUHAMMAD REZKY",
+   nis: "23103",
+   jeniskelamin: "Laki-Laki",
+   nisn: "105423542",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-07-25",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Naufal Azmi Daffa",
+   nis: "23104",
+   jeniskelamin: "Laki-Laki",
+   nisn: "112369023",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-05-25",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "NUR ICHSAN",
+   nis: "23052",
+   jeniskelamin: "Laki-Laki",
+   nisn: "113316813",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-06-23",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Nur Inayah Muslimah",
+   nis: "23106",
+   jeniskelamin: "Perempuan",
+   nisn: "117624505",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-01-07",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Nurfahira Anggreni Irwan",
+   nis: "23109",
+   jeniskelamin: "Perempuan",
+   nisn: "107583303",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-06-14",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Nurhikma. K",
+   nis: "23110",
+   jeniskelamin: "Perempuan",
+   nisn: "118011739",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-10-25",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Siti Alya Sahrayni R",
+   nis: "23115",
+   jeniskelamin: "Perempuan",
+   nisn: "105053932",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-01-29",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Syahdan Safaruddin",
+   nis: "23116",
+   jeniskelamin: "Laki-Laki",
+   nisn: "107229990",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-12-27",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Syahrul Putra Ramadhan",
+   nis: "23117",
+   jeniskelamin: "Laki-Laki",
+   nisn: "103827964",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-09-02",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "WILLY RIZARD MALONDA",
+   nis: "23030",
+   jeniskelamin: "Laki-Laki",
+   nisn: "104796207",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-12-12",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Yuli Malayani",
+   nis: "23118",
+   jeniskelamin: "Perempuan",
+   nisn: "115657869",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-07-29",
+   kelas: "Kelas 9-4",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+
+ {
+   nama: "Amelia Zahra Ghina",
+   nis: "23120",
+   jeniskelamin: "Perempuan",
+   nisn: "106981044",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-09-27",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Andi Alam Fajar",
+   nis: "23121",
+   jeniskelamin: "Laki-Laki",
+   nisn: "106104886",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-08-08",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "ARIF",
+   nis: "23122",
+   jeniskelamin: "Laki-Laki",
+   nisn: "109751856",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-11-14",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "ASYFA KIRANIA HAQQANI",
+   nis: "23003",
+   jeniskelamin: "Perempuan",
+   nisn: "116484445",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-07-08",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Cantika Dara",
+   nis: "23124",
+   jeniskelamin: "Perempuan",
+   nisn: "113545547",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-07-04",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "DELA NUR AINI",
+   nis: "23125",
+   jeniskelamin: "Perempuan",
+   nisn: "104638846",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-10-07",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "EVI OKTAVIANI JAMIL",
+   nis: "25166",
+   jeniskelamin: "Perempuan",
+   nisn: "103943058",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-10-10",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Fikram Kasman",
+   nis: "23126",
+   jeniskelamin: "Laki-Laki",
+   nisn: "113088506",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-06-24",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Ilmiyana Syahifah Zulham",
+   nis: "23128",
+   jeniskelamin: "Perempuan",
+   nisn: "109954462",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-12-12",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Kaila Khumairah",
+   nis: "23129",
+   jeniskelamin: "Perempuan",
+   nisn: "105329283",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-11-01",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "KARUNIA NURFADILLAH",
+   nis: "23130",
+   jeniskelamin: "Perempuan",
+   nisn: "111314503",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-06-16",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Maira",
+   nis: "23131",
+   jeniskelamin: "Perempuan",
+   nisn: "105527613",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-05-18",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh Farel Aditya",
+   nis: "23177",
+   jeniskelamin: "Laki-Laki",
+   nisn: "116837707",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-08-04",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh. Alfauzan Azima",
+   nis: "23132",
+   jeniskelamin: "Laki-Laki",
+   nisn: "119764622",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-09-22",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh. Anugrah",
+   nis: "23133",
+   jeniskelamin: "Laki-Laki",
+   nisn: "119581203",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-09-28",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "MUH. ARYA",
+   nis: "23176",
+   jeniskelamin: "Laki-Laki",
+   nisn: "116776583",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-11-22",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh. Faidil",
+   nis: "23134",
+   jeniskelamin: "Laki-Laki",
+   nisn: "118840733",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-07-27",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Nafizah Rahelc",
+   nis: "23137",
+   jeniskelamin: "Perempuan",
+   nisn: "115353196",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2012-06-17",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Naila Rahmatal Azza",
+   nis: "23015",
+   jeniskelamin: "Perempuan",
+   nisn: "103008422",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-09-13",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "NUR AFRIANI",
+   nis: "23084",
+   jeniskelamin: "Perempuan",
+   nisn: "114508663",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-05-17",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Nur Alam Saputra",
+   nis: "23178",
+   jeniskelamin: "Laki-Laki",
+   nisn: "117605652",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-06-19",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "NUR ALIA",
+   nis: "23138",
+   jeniskelamin: "Perempuan",
+   nisn: "112888389",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-07-26",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Nurrismayanti",
+   nis: "23140",
+   jeniskelamin: "Perempuan",
+   nisn: "112569092",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-01-08",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "NURWINDAH",
+   nis: "23141",
+   jeniskelamin: "Perempuan",
+   nisn: "115698179",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-05-06",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "RADIATUL HUSNA",
+   nis: "23143",
+   jeniskelamin: "Perempuan",
+   nisn: "118043389",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-03-23",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Syifaa Ramadhani",
+   nis: "23144",
+   jeniskelamin: "Perempuan",
+   nisn: "112928629",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-08-19",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "WINDI SASKIA PUTRI",
+   nis: "23145",
+   jeniskelamin: "Perempuan",
+   nisn: "102460311",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-12-16",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "ZAFIRAH",
+   nis: "23146",
+   jeniskelamin: "Perempuan",
+   nisn: "106729126",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-10-31",
+   kelas: "Kelas 9-5",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "",
+   nis: null,
+   jeniskelamin: "",
+   nisn: null,
+   tempatLahir: "",
+   tanggalLahir: "",
+   kelas: "",
+   status: "",
+   "FIELD9": ""
+ },
+ {
+   nama: "Adam",
+   nis: "23147",
+   jeniskelamin: "Laki-Laki",
+   nisn: "109006175",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-08-13",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Asmiranda",
+   nis: "23149",
+   jeniskelamin: "Perempuan",
+   nisn: "118997639",
+   tempatLahir: "Takalar",
+   tanggalLahir: "2011-09-15",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Dewi Hajrah",
+   nis: "23150",
+   jeniskelamin: "Perempuan",
+   nisn: "3112054442",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-05-13",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Hardiansyah Hasan",
+   nis: "23151",
+   jeniskelamin: "Laki-Laki",
+   nisn: "116617276",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-04-29",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "ISNIN SYAHBANI",
+   nis: "23152",
+   jeniskelamin: "Perempuan",
+   nisn: "113698049",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-08-02",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Karmila",
+   nis: "23154",
+   jeniskelamin: "Perempuan",
+   nisn: "112408690",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-05-26",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "M.RIZKY RAMADHAN",
+   nis: "23156",
+   jeniskelamin: "Laki-Laki",
+   nisn: "118530820",
+   tempatLahir: "MAMUJU",
+   tanggalLahir: "2011-08-16",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh. Alam Rivai S",
+   nis: "23157",
+   jeniskelamin: "Laki-Laki",
+   nisn: "119803341",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-06-30",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "MUH. ASRIL",
+   nis: "23158",
+   jeniskelamin: "Laki-Laki",
+   nisn: "3094710746",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2009-05-30",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "MUH. FIKRI ENSU MAJID",
+   nis: "24199",
+   jeniskelamin: "Laki-Laki",
+   nisn: "119361735",
+   tempatLahir: "KENDARI",
+   tanggalLahir: "2011-06-11",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "MUH. REZKY",
+   nis: "23159",
+   jeniskelamin: "Laki-Laki",
+   nisn: "111661459",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2011-05-30",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh. Suljalani",
+   nis: "23160",
+   jeniskelamin: "Laki-Laki",
+   nisn: "119308365",
+   tempatLahir: "Maros",
+   tanggalLahir: "2011-08-28",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Muh. Taufik Hamzah",
+   nis: "23161",
+   jeniskelamin: "Laki-Laki",
+   nisn: "111959121",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-06-22",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "NAPISAH",
+   nis: "23162",
+   jeniskelamin: "Perempuan",
+   nisn: "103298967",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-11-04",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Nur Asfar Wahyu Fadlhillah",
+   nis: "23163",
+   jeniskelamin: "Laki-Laki",
+   nisn: "107989465",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-12-10",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "NUR FADILLA S.",
+   nis: "23164",
+   jeniskelamin: "Perempuan",
+   nisn: "3103605886",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-08-03",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Nur Fadillah A",
+   nis: "23165",
+   jeniskelamin: "Perempuan",
+   nisn: "119012144",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-02-04",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Nur Indah",
+   nis: "23166",
+   jeniskelamin: "Perempuan",
+   nisn: "113751863",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2012-01-02",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "NUR NAILA AZZAHRA",
+   nis: "23167",
+   jeniskelamin: "Perempuan",
+   nisn: "106976633",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-08-01",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Reski Rahmayanti",
+   nis: "23168",
+   jeniskelamin: "Perempuan",
+   nisn: "104547468",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2010-11-22",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Resky Amelia",
+   nis: "23169",
+   jeniskelamin: "Perempuan",
+   nisn: "111771839",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-10-25",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "SELFIA DAYANA SUMIRAT",
+   nis: "23170",
+   jeniskelamin: "Perempuan",
+   nisn: "102549176",
+   tempatLahir: "Tasikmalaya",
+   tanggalLahir: "2010-06-04",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "SHERLY ANANDA BAHARANI",
+   nis: "23171",
+   jeniskelamin: "Perempuan",
+   nisn: "117104341",
+   tempatLahir: "Muara jawa",
+   tanggalLahir: "2011-06-15",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Sitti Nur Fajriah",
+   nis: "23172",
+   jeniskelamin: "Perempuan",
+   nisn: "119608565",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-03-22",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Sri Wahyuni",
+   nis: "23181",
+   jeniskelamin: "Perempuan",
+   nisn: "116390569",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-05-10",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "SYERING AULIA",
+   nis: "25204",
+   jeniskelamin: "Perempuan",
+   nisn: "117470807",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-01-09",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "Vachrul Putra",
+   nis: "23029",
+   jeniskelamin: "Laki-Laki",
+   nisn: "117624299",
+   tempatLahir: "Makassar",
+   tanggalLahir: "2011-09-13",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ },
+ {
+   nama: "YUSUF IBRAHIM",
+   nis: "23173",
+   jeniskelamin: "Laki-Laki",
+   nisn: "101417753",
+   tempatLahir: "MAKASSAR",
+   tanggalLahir: "2010-04-30",
+   kelas: "Kelas 9-6",
+   status: "LULUS",
+   "FIELD9": ""
+ }
+];
+/* COUNTDOWN */
+const box=document.getElementById("countdownBox");
+const form=document.getElementById("formKelulusan");
+const cd=document.getElementById("countdown");
+
+function cekWaktu(){
+  const now=new Date();
+  if(now < WAKTU_BUKA){
+    box.style.display="block";
+    form.style.display="none";
+
+    const s=Math.floor((WAKTU_BUKA-now)/1000);
+    const h=Math.floor(s/3600);
+    const m=Math.floor((s%3600)/60);
+    const d=s%60;
+    cd.innerHTML=`${h} jam ${m} menit ${d} detik`;
+  }else{
+    box.style.display="none";
+    form.style.display="block";
+  }
+}
+setInterval(cekWaktu,1000);
+cekWaktu();
+
+/* CONFETTI */
+function confettiEffect(){
+  for(let i=0;i<40;i++){
+    const c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"vw";
+    c.style.backgroundColor=`hsl(${Math.random()*360},100%,50%)`;
+    c.style.animationDuration=2+Math.random()*3+"s";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),5000);
+  }
+}
+
+/* CEK KELULUSAN */
+function cekKelulusan(){
+  const out=document.getElementById("output");
+  const s=dataSiswa.find(x=>x.nisn===nisn.value && x.tanggalLahir===tglLahir.value);
+
+  if(s){
+    const statusHTML = s.status==="LULUS"
+      ? `<div class="status-lulus">🎉 SELAMAT, ANDA DINYATAKAN LULUS 🎉</div>`
+      : `<div class="status-tidak">❌ ANDA DINYATAKAN TIDAK LULUS</div>`;
+
+    out.innerHTML=`
+      <div class="hasil">
+        <p><b>Nama:</b> ${s.nama}</p>
+        <p><b>NIS:</b> ${s.nis}</p>
+        <p><b>NISN:</b> ${s.nisn}</p>
+        <p><b>Tempat Lahir:</b> ${s.tempatLahir}</p>
+        <p><b>Tanggal Lahir:</b> ${s.tanggalLahir}</p>
+        ${statusHTML}
+      </div>
+    `;
+
+    if(s.status==="LULUS") confettiEffect();
+  }else{
+    out.innerHTML=`<p class="tidak-ditemukan">❗ Data tidak ditemukan</p>`;
+  }
+
+  out.scrollIntoView({behavior:"smooth",block:"start"});
+}
+</script>
+
+</body>
+</html>
