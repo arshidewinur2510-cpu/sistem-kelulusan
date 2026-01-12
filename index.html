@@ -45,17 +45,20 @@ body{
 }
 
 /* BADGE */
-.badge{
-  position:absolute;
-  top:-18px;
-  left:50%;
-  transform:translateX(-50%);
-  background:linear-gradient(135deg,#ff9800,#ff5722);
-  color:#fff;
-  padding:8px 18px;
-  border-radius:20px;
-  font-weight:bold;
-  box-shadow:0 10px 20px rgba(0,0,0,.25);
+.badge {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #ff9800, #ff5722);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: bold;
+  box-shadow: 0 10px 20px rgba(0,0,0,.25);
+
+  white-space: nowrap;        /* 🔴 PENTING: cegah turun baris */
+  font-size: 14px;
 }
 
 /* LOGO */
@@ -183,6 +186,45 @@ footer{
   .header h1{font-size:20px}
   .header h2{font-size:16px}
 }
+  @media (max-width: 480px) {
+
+  body {
+    padding: 14px;
+  }
+
+  .card {
+    width: 100%;
+    padding: 26px 20px 22px;
+  }
+
+  .badge {
+    font-size: 12px;
+    padding: 6px 14px;
+    top: -14px;
+  }
+
+  .logos img {
+    height: 46px;
+  }
+
+  .logo-tengah {
+    height: 56px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 15px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 12px;
+  }
+}
+
 </style>
 </head>
 
@@ -2109,4 +2151,5 @@ function cekKelulusan(){
 
 </body>
 </html>
+
 
